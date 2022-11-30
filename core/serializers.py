@@ -1,7 +1,24 @@
-from rest_framework import routers, serializers, viewsets
-from .models import Categoria
+from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
+from .models import  Autor, Categoria, Editora ,Livro
 
-class CatedoriaSerializer(serializers.HyperlinkedModelSerializer):
+
+class AutorSeerializer(ModelSerializer):
+    class Meta:
+        model = Autor
+        fields = '__all__'
+
+class CategoriaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Categoria
-        fields = ['id', 'descricao']
+        fields = '__all__'
+
+class EditoraSerializer(ModelSerializer):
+    class Meta:
+        model = Editora
+        fields = '__all__'
+
+class LivroSerializer(ModelSerializer):
+    class Meta:
+        model = Livro
+        fields = '__all__'
